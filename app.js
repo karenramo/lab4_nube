@@ -1,25 +1,21 @@
 const express = require('express');
 const app = express();
+const port = 5000;
 
-// Ruta principal
 app.get('/', (req, res) => {
-  res.send('¡Bienvenido a mi aplicación Express en Docker!');
+  res.send('¡Hola, mundo!');
 });
 
-// Ruta de clientes
 app.get('/clientes', (req, res) => {
-  // Aquí deberías obtener y enviar información sobre 3 clientes
-  res.send('Lista de clientes');
+  const clientes = ['Cliente 1', 'Cliente 2', 'Cliente 3'];
+  res.json(clientes);
 });
 
-// Ruta de productos
 app.get('/productos', (req, res) => {
-  // Aquí deberías obtener y enviar información sobre 3 productos
-  res.send('Lista de productos');
+  const productos = ['Producto 1', 'Producto 2', 'Producto 3'];
+  res.json(productos);
 });
 
-const PORT = 5000;
-
-app.listen(PORT, () => {
-  console.log(`La aplicación está escuchando en el puerto ${PORT}`);
+app.listen(port, () => {
+  console.log(`La aplicación está corriendo en http://localhost:${port}`);
 });
